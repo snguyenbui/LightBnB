@@ -24,16 +24,6 @@ const getUserWithEmail = function(email) {
   WHERE email = $1
   `, [email])
   .then(res => res.rows[0]);
-  // let user;
-  // for (const userId in users) {
-  //   user = users[userId];
-  //   if (user.email.toLowerCase() === email.toLowerCase()) {
-  //     break;
-  //   } else {
-  //     user = null;
-  //   }
-  // }
-  // return Promise.resolve(user);
 }
 exports.getUserWithEmail = getUserWithEmail;
 
@@ -49,7 +39,6 @@ const getUserWithId = function(id) {
   WHERE id = $1
   `, [id])
   .then(res => res.rows[0]);
-  // return Promise.resolve(users[id]);
 }
 exports.getUserWithId = getUserWithId;
 
@@ -66,10 +55,6 @@ const addUser =  function(user) {
   RETURNING *;
   `, [user.name, user.email, user.password])
   .then(res => res.rows);
-  // const userId = Object.keys(users).length + 1;
-  // user.id = userId;
-  // users[userId] = user;
-  // return Promise.resolve(user);
 }
 exports.addUser = addUser;
 
